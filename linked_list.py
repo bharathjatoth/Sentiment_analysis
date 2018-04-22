@@ -3,7 +3,7 @@ import csv
 import numpy as np
 import tensorflow as tf
 ques_vec = []
-words = pd.read_table(r'C:\Users\jatoth.kumar\PycharmProjects\Tensorflow\data\glove.6B\glove.6B.50d.txt', sep=" ",
+words = pd.read_table('Glove or Word2vec modelload', sep=" ",
                       index_col=0, header=None, quoting=csv.QUOTE_NONE)
 def vec(w):
     return words.loc[w].as_matrix()
@@ -23,8 +23,8 @@ def here():
     feedback = []
     feedback_test = []
     print(len(ques_vec))
-    book = pd.read_csv(r'C:\Users\jatoth.kumar\PycharmProjects\Tensorflow\data\train_emoji.csv')
-    book1 = pd.read_csv(r'C:\Users\jatoth.kumar\PycharmProjects\Tensorflow\data\tesss.csv')
+    book = pd.read_csv(r'data\train_emoji.csv')
+    book1 = pd.read_csv(r'data\tesss.csv')
     rating = (book['rating'].tolist())
     rating1 = (book1['rating'].tolist())
     question = book['Question'].tolist()
