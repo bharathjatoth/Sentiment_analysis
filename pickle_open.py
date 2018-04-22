@@ -1,15 +1,3 @@
-# import pickle
-#
-# objects = []
-# with (open(r'C:\Users\jatoth.kumar\PycharmProjects\Tensorflow\sentiment_set.pickle', "rb")) as openfile:
-#     while True:
-#         try:
-#             objects.append(pickle.load(openfile))
-#         except EOFError:
-#             break
-# for i in range(len(objects)):
-#     print(i)
-#     print(objects[i])
 import tensorflow as tf
 import numpy as np
 from linked_list import here
