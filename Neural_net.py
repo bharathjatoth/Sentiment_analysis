@@ -45,8 +45,8 @@ def neural_net(x):
             print("cost")
         correct = tf.equal(tf.argmax(prediction, 1), tf.argmax(y, 1))
         accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
-        # for i in range(len(test_label)):
-        # saver.save(sess,'senti_model')
+#         for i in range(len(test_label)):
+#         saver.save(sess,'senti_model')
         print(len(test_vec),len(test_label),np.array(test_vec[0]).shape,np.array(test_label[0]).shape)
         k1 = (accuracy.eval({x: test_vec, y: test_label}))
         print(k1)
