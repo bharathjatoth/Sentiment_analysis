@@ -3,13 +3,24 @@ import csv
 import numpy as np
 import tensorflow as tf
 ques_vec = []
-words = pd.read_table('Glove or Word2vec modelload', sep=" ",
+load_model = False #make it True when you need to use word2Vec model
+#In this version we used glove 50-D vector you can just place the location of the model in the below location place
+words = pd.read_table('location of Glove', sep=" ",
                       index_col=0, header=None, quoting=csv.QUOTE_NONE)
-def vec(w):
+if load_model is True:  #using Word2vec to convert to vectors
+    def vec(w):
+        x = os.path.join(os.getcwd(),'GoogleNews-vectors-negative300.bin')
+        print(x)
+        model = gensim.models.KeyedVectors.load_word2vec_format('./data/GoogleNews-vectors-negative300.bin.gz', binary=True)
+        return model[w]
+def vec(w): #convert to vectors with glove 50-D or 100-D
     return words.loc[w].as_matrix()
+
 x = (vec("hello").shape)
+
 def oneh(x5):
     return tf.one_hot(x5,5,on_value=1.0,off_value=0.0,axis=-1)
+  
 def exact(sent):
     g1 = str(sent).split()
     # print(g1)
@@ -19,6 +30,7 @@ def exact(sent):
     g2 = g2/len(g1)
     # g2 = np.array([g2])
     return g2
+  
 def here():
     feedback = []
     feedback_test = []
